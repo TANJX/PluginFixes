@@ -1,0 +1,33 @@
+name: GemPro
+version: 1.0
+main: customcraft.gempro.GemPro
+prefix: 宝石镶嵌
+softdepend: [Vault, Soulbound]
+commands:
+  GemPro:
+    aliases: [bsxq, xq]
+    usage: |
+      §a/<command> punch §d-§e 给手中物品加工|打孔§7(§3可能需要支付一点什么§7)
+      §a/<command> clear §d-§e 清除装备附加属性
+      §a/<command> clearall §d-§e 清除装备全部属性
+      §a/<command> spawn [数量] §d-§e 随机获得宝石
+      §a/<command> give <玩家名称> [宝石] [数量] §d-§e 给予玩家宝石§7(§3未输入宝石则随机§7)
+      §a/<command> gemlist §d-§e 全部宝石列表
+      §a/<command> reload §d-§e 重载配置
+permissions:
+  gempro.use:
+    default: op
+  gempro.spawn:
+    default: op
+  gempro.give:
+    default: op
+  gempro.gemlist:
+    default: op
+  gempro.punch:
+    default: op
+  gempro.clear:
+    default: op
+  gempro.clearall:
+    default: op
+  gempro.reload:
+    default: op

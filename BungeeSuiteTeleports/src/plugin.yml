@@ -1,0 +1,110 @@
+name: Teleports
+main : com.minecraftdimensions.bungeesuiteteleports.BungeeSuiteTeleports
+version: ${project.version}b-${build.number}
+description: Part of the BungeeSuite this plugin allows users to teleport to each other.
+author: Bloodsplat
+website: http://www.spigotmc.org/resources/bungeesuite.9/
+prefix: BungeeSuite
+commands:
+    tp:
+        description: Teleports a player to another player or location
+        aliases: [teleport]
+        permission: bungeesuite.teleports.command.tp
+        permission-message: §cYou do not have permission for this command
+        usage: |
+               /<command>  (player)
+               /<command>  (player) (player)
+               /<command>  (x) (y) (z)
+               /<command>  (player) (x) (y) (z)
+    tphere:
+        description: Teleports a player to you
+        aliases: [teleporthere,tptome]
+        permission: bungeesuite.teleports.command.tphere
+        permission-message: §cYou do not have permission for this command
+        usage: /<command> (player)
+    tpahere:
+        description: Requests a player teleport to you
+        aliases: [teleportaskhere]
+        permission: bungeesuite.teleports.command.tpahere
+        permission-message: §cYou do not have permission for this command
+        usage: /<command> (player)
+    tpall:
+        description: Requests all players teleport to you
+        aliases: [teleportall]
+        permission: bungeesuite.teleports.command.tpall
+        permission-message: §cYou do not have permission for this command
+        usage: |
+               /<command>
+               /<command> (player)
+    tpa:
+        description: Sends a teleport request to a player
+        aliases: [tpask,teleportask,tpto]
+        permission: bungeesuite.teleports.command.tpa
+        permission-message: §cYou do not have permission for this command
+        usage: /<command>  (player)
+    tpaccept:
+        description: Accepts a players teleport request
+        aliases: [teleportaccept,tpyes]
+        permission: bungeesuite.teleports.command.tpaccept
+        permission-message: §cYou do not have permission for this command
+        usage: /<command>
+    tpdeny:
+        description: Denies a teleport request
+        aliases: [teleportdeny,tpno]
+        permission: bungeesuite.teleports.command.tpdeny
+        permission-message: §cYou do not have permission for this command
+        usage: /<command>
+    back:
+        description: Sends you back to your last death or teleport location
+        permission: bungeesuite.teleports.command.back
+        permission-message: §cYou do not have permission for this command
+        usage: /<command>
+    tptoggle:
+        description: Toggles the receiving of tp requests
+        permission: bungeesuite.teleports.command.tptoggle
+        permission-message: §cYou do not have permission for this command
+        usage: /<command>
+
+permissions:
+    bungeesuite.teleports.*:
+        description: Gives access to all BungeeSuiteTeleport commands
+        default: op
+        children:
+            bungeesuite.teleports.admin: true
+    bungeesuite.teleports.admin:
+        description: Gives access to all BungeeSuiteTeleport admin commands
+        children:
+            bungeesuite.teleports.vip: true
+            bungeesuite.teleports.command.tp: true
+            bungeesuite.teleports.command.tphere: true
+            bungeesuite.teleports.command.tpall: true
+            bungeesuite.teleports.tp.silent: true
+            bungeesuite.teleports.tp.bypass: true
+    bungeesuite.teleports.vip:
+        decsription: Gives access to all BungeeSuiteTeleport vip commands
+        children:
+            bungeesuite.teleports.command.tptoggle: true
+            bungeesuite.teleports.back.*: true
+            bungeesuite.teleports.user: true
+    bungeesuite.teleports.user:
+        description: Gives access to all BungeeSuiteTeleport user commands
+        children:
+            bungeesuite.teleports.command.tpahere: true
+            bungeesuite.teleports.command.tpa: true
+            bungeesuite.teleports.command.tpaccept: true
+            bungeesuite.teleports.command.tpdeny: true
+    bungeesuite.teleports.back.*:
+        description: Gives full access to the back command
+        children:
+            bungeesuite.teleports.command.back: true
+            bungeesuite.teleports.back.death: true
+            bungeesuite.teleports.back.teleport: true
+    bungeesuite.teleports.back.death:
+        description: Gives access to /back for death points
+    bungeesuite.teleports.back.teleport:
+        description: Gives access to /back for teleports
+    bungeesuite.teleports.tp.silent:
+        description: Does not send a teleport message to the player you teleported to
+    bungeesuite.teleports.tp.bypass:
+        description: Ability to bypass the tptoggle using /tp and this permission
+        

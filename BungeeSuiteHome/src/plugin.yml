@@ -1,0 +1,70 @@
+name: Homes
+main : com.minecraftdimensions.bungeesuitehomes.BungeeSuiteHomes
+version: ${project.version}b-${build.number}
+description: Part of the BungeeSuite this plugin allows users to set homes in each server.
+author: Bloodsplat
+website: http://www.spigotmc.org/resources/bungeesuite.9/
+prefix: BungeeSuite
+commands:
+    sethome:
+        description: Sets the players home location.
+        usage: |
+               /<command>
+               /<command> (home name)
+        permission: bungeesuite.homes.commands.sethome
+        permission-message: §cYou do not have permission for this command
+    delhome:
+        description: Deletes a players home.
+        usage: |
+               /<command>
+               /<command>(home name)
+        permission: bungeesuite.homes.commands.delhome
+        permission-message: §cYou do not have permission for this command
+    home:
+        description: Teleports you home
+        usage: |
+                /<command>
+                /<command> (home name)
+        permission: bungeesuite.homes.commands.home
+        permission-message: §cYou do not have permission for this command
+    homes:
+        description: Lists all of your homes
+        usage: /<command>
+        permission: bungeesuite.homes.commands.homes
+        permission-message: §cYou do not have permission for this command      
+    importhomes:
+        description: imports homes from your essentials data
+        usage: /<command>
+        permission: bungeesuite.homes.commands.importhomes
+        permission-message: §cYou do not have permission for this command
+permissions:
+    bungeesuite.homes.*:
+        description: Gives access to all home commands
+        default: op
+        children:
+            bungeesuite.homes.admin: true
+    bungeesuite.homes.admin:
+        description: Gives access to all bungeesuite homes commands
+        children:
+            bungeesuite.homes.commands.importhomes: true
+            bungeesuite.homes.user: true
+    bungeesuite.homes.user:
+        description: Gives access to all bungeesuite homes user commands
+        children:
+            bungeesuite.homes.commands.sethome: true
+            bungeesuite.homes.commands.delhome: true
+            bungeesuite.homes.commands.homes: true
+            bungeesuite.homes.commands.home: true
+    bungeesuite.homes.limits.*:
+        decription: Gives maximum home limits for both global and server
+        children:
+            bungeesuite.homes.limits.server.*: true
+            bungeesuite.homes.limits.global.*: true
+    bungeesuite.homes.limits.server.*:
+        description: Gives maximum homes allowed for each server
+        children:
+            bungeesuite.homes.limits.server.<number of allowed homes>: true
+    bungeesuite.homes.limits.global.*:
+        description: Gives maximum homes allowed for the whole proxy
+        children:
+            bungeesuite.homes.limits.global.<number of allowed homes>: true
