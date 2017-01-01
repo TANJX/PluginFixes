@@ -1,0 +1,17 @@
+name: PvPTitles
+main: com.gmail.mikeundead.PvPTitles
+version: 1.3.0
+commands:
+   rank:
+      description: Shows your current stats
+      usage: /rank
+   ladder:
+      description: Shows the top 5 players
+      usage: /ladder
+permissions:
+   pvptitles.rank:
+      description: Allows you to see rank
+   pvptitles.ladder:
+      description: Allows you to see the ladder
+   pvptitles.chat:
+      description: Allow see the fame in chat
