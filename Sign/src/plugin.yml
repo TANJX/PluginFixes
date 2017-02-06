@@ -1,0 +1,9 @@
+name: TigerSigns
+main: com.tigerhix.signs.Main
+authors: [TigerHix]
+version: 1.0.0
+description: Edit signs with UTF-8 characters!
+commands:
+   signedit:
+      description: Sign commands.
+      usage: /<command>

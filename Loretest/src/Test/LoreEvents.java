@@ -5,18 +5,13 @@
 
 package Test;
 
-import Test.LoreAttributes;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.entity.EntityRegainHealthEvent;
-import org.bukkit.event.entity.EntityShootBowEvent;
-import org.bukkit.event.entity.EntityTargetEvent;
+import org.bukkit.event.entity.*;
 import org.bukkit.event.entity.EntityRegainHealthEvent.RegainReason;
 import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
@@ -126,8 +121,11 @@ public class LoreEvents implements Listener {
                         } else {
                             event.setDamage(Math.max(0.0D, event.getDamage() + (double) LoreAttributes.loreManager.getDamageBonus(damager)) - (double) LoreAttributes.loreManager.getArmorBonus((LivingEntity) event.getEntity()));
                         }
-
-                        damager.setHealth(Math.min(damager.getMaxHealth(), damager.getHealth() + Math.min((double) LoreAttributes.loreManager.getLifeSteal(damager), event.getDamage())));
+                        double newHealth = Math.min(damager.getMaxHealth(), damager.getHealth() + Math.min((double) LoreAttributes.loreManager.getLifeSteal(damager), event.getDamage()));
+                        if (newHealth > damager.getMaxHealth()) {
+                            newHealth = damager.getMaxHealth();
+                        }
+                        damager.setHealth(newHealth);
                     }
                 }
 

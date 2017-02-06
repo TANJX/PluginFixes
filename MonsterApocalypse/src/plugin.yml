@@ -1,0 +1,14 @@
+name: MonsterApocalypse
+main: blainicus.MonsterApocalypse.MonsterApocalypse
+version: <1.0>
+softdepend:
+    - Multiverse-Core
+    - WorldGuard
+    - CreeperHeal
+    - MobAPA
+commands:
+   monsterapocalypse:
+      description: Handler for all Monster Apocalypse commands.
+      aliases: [ma, mobapocalypse, monsterapoc, mobapoc, mapocalypse, mapoc, monstera, moba]
+      permission: Monster Apocalypse.spawnpoints
+      usage: /ma (Monster Apocalypse Spawnpoint Command) [name] args...
