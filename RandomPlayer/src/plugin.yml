@@ -1,0 +1,15 @@
+name: RandomPlayer
+main: com.manjason.randomplayer.RandomPlayer
+author: ManJason
+website: http://www.manjason.com
+database: false
+description: "分配人数最少服务器"
+version: 1.0
+commands:
+  rp:
+    description: "分配服务器指令"
+    permission: rp.use
+    permission-message: "你需要拥有权限rp.use"
+permissions:
+  rp.use:
+    default: op

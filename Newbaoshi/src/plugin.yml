@@ -1,0 +1,8 @@
+name: baoshi
+main: Toin.cc.baoshi
+version: 1.0
+prefix: 宝石
+commands:
+  baoshi:
+description: 列出命令列表
+usage: /baoshi

@@ -1,0 +1,9 @@
+name: CreditShop
+main: com.github.SHENDong.CreditShop
+version: 1.0
+softdepend: [Credit]
+author: syx330679663
+commands:
+  Cshop:
+    description: §6点卷商店指令
+    usage: §6输入§f/cshop 获得更多帮助

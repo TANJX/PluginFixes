@@ -1,0 +1,17 @@
+language: "zh"
+mysql:
+  ip: "127.0.0.1"
+  port: "3306"
+  database: "minecraft"
+  table: "t_randomplayer"
+  username: "root"
+  password: "root"
+bungeesuite_mysql:
+  ip: "127.0.0.1"
+  port: "3306"
+  database: "bungeesuite"
+  table: "bungeehomes"
+  username: "root"
+  password: "root"
+servers:
+  - "sc1"
