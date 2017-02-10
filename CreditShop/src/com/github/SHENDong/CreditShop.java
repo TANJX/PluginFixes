@@ -7,6 +7,7 @@ package com.github.SHENDong;
 
 import io.github.sjj118.credit.CreditAPI;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -25,16 +26,23 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CreditShop extends JavaPlugin implements Listener {
     private final CreditAPI creditAPI = new CreditAPI();
+    private final List<String> additionalLore = new ArrayList<>();
 
     public void onEnable() {
         this.getLogger().info("CreditShop_v1.0已加载");
         if (!this.getDataFolder().exists()) {
             this.getDataFolder().mkdirs();
         }
-
+        PluginFile loreFile = new PluginFile(this, "lore.yml", "lore.yml");
+        loreFile.setEditable(false);
+        System.out.print(loreFile.getKeys(true));
+        for (String lore : loreFile.getStringList("lore")) {
+            additionalLore.add(ChatColor.translateAlternateColorCodes('&', lore));
+        }
         this.getServer().getPluginManager().registerEvents(this, this);
     }
 
@@ -170,6 +178,7 @@ public class CreditShop extends JavaPlugin implements Listener {
                     String Lore = config.getString(x + ".Lore");
                     lore.add("§2单价" + price + "点券");
                     lore.add(Lore);
+                    lore.addAll(additionalLore);
                     meta.setLore(lore);
                     i.setItemMeta(meta);
                     inv.setItem(config.getInt(x + ".Slot") - 1, i);
