@@ -1,0 +1,18 @@
+name: CityOccupy
+main: com.hundunstar.cityoccupy.CityOccupy
+version: 2-For Didan
+commands:
+  cop:
+    description: Main Command
+    usage: /cop commandlist for more info
+  cityoccupy:
+    description: Main Command
+    usage: /cityoccupy commandlist for more info
+permissions:
+  cityoccupy.create:
+    description: Gives you access to /cop create and to select the area of the city
+    default: op
+  cityocuppy.remove:
+    default: op
+  cityoccupy.attack:
+    default: true

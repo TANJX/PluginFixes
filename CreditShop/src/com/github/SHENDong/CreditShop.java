@@ -174,10 +174,11 @@ public class CreditShop extends JavaPlugin implements Listener {
                     ItemStack i = new ItemStack(config.getItemStack(x + ".ItemStack"));
                     ItemMeta meta = i.getItemMeta();
                     int price = config.getInt(x + ".Price");
-                    ArrayList<String> lore = new ArrayList<>();
-                    String Lore = config.getString(x + ".Lore");
+                    List<String> lore = meta.hasLore() ?
+                            meta.getLore() : new ArrayList<>();
+//                    String Lore = config.getString(x + ".Lore");
                     lore.add("°Ï2µ•º€" + price + "µ„»Ø");
-                    lore.add(Lore);
+//                    lore.add(Lore);
                     lore.addAll(additionalLore);
                     meta.setLore(lore);
                     i.setItemMeta(meta);
