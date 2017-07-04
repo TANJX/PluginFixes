@@ -7,12 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.util.io.BukkitObjectInputStream;
-import org.bukkit.util.io.BukkitObjectOutputStream;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.sql.SQLException;
 
 public class Kit {
@@ -44,37 +39,11 @@ public class Kit {
     }
 
     public ItemStack[] getInventory() {
-        byte[] byteInv = SQLKits.getKitInventory(kitName.toLowerCase());
-
-        ByteArrayInputStream ByteArIS = new ByteArrayInputStream(byteInv);
-        Object inv = null;
-        try {
-            BukkitObjectInputStream invObjIS = new BukkitObjectInputStream(ByteArIS);
-            inv = invObjIS.readObject();
-            invObjIS.close();
-        } catch (IOException | ClassNotFoundException ioexception) {
-            ioexception.printStackTrace();
-        }
-        this.inventory = (ItemStack[]) inv;
-        return inventory;
+        return SQLKits.getKitInventory(kitName.toLowerCase());
     }
 
     public ItemStack[] getArmor() {
-        byte[] byteArm = SQLKits.getKitArmor(kitName.toLowerCase());
-
-        ByteArrayInputStream ByteArIS = new ByteArrayInputStream(byteArm);
-        Object arm = null;
-        try {
-            BukkitObjectInputStream armObjIS = new BukkitObjectInputStream(ByteArIS);
-            arm = armObjIS.readObject();
-            armObjIS.close();
-        } catch (IOException ioexception) {
-            ioexception.printStackTrace();
-        } catch (ClassNotFoundException classNotFoundException) {
-            classNotFoundException.printStackTrace();
-        }
-        this.armor = (ItemStack[]) arm;
-        return armor;
+        return SQLKits.getKitArmor(kitName.toLowerCase());
     }
 
     public int getLimit() {
@@ -94,56 +63,37 @@ public class Kit {
         Bukkit.getServer().getPluginManager().callEvent(event);
 
         if (!event.isCancelled()) {
-            ByteArrayOutputStream invByteArray = new ByteArrayOutputStream();
-            try {
-                BukkitObjectOutputStream invObjOS = new BukkitObjectOutputStream(invByteArray);
-                invObjOS.writeObject(inventory);
-                invObjOS.close();
-            } catch (IOException ioexception) {
-                ioexception.printStackTrace();
-            }
+//            ByteArrayOutputStream invByteArray = new ByteArrayOutputStream();
+//            try {
+//                BukkitObjectOutputStream invObjOS = new BukkitObjectOutputStream(invByteArray);
+//                invObjOS.writeObject(inventory);
+//                invObjOS.close();
+//            } catch (IOException ioexception) {
+//                ioexception.printStackTrace();
+//            }
+//
+//            ByteArrayOutputStream armByteArray = new ByteArrayOutputStream();
+//            try {
+//                BukkitObjectOutputStream armObjOS = new BukkitObjectOutputStream(armByteArray);
+//                armObjOS.writeObject(armor);
+//                armObjOS.close();
+//            } catch (IOException ioexception) {
+//                ioexception.printStackTrace();
+//            }
 
-            ByteArrayOutputStream armByteArray = new ByteArrayOutputStream();
-            try {
-                BukkitObjectOutputStream armObjOS = new BukkitObjectOutputStream(armByteArray);
-                armObjOS.writeObject(armor);
-                armObjOS.close();
-            } catch (IOException ioexception) {
-                ioexception.printStackTrace();
-            }
-
-            SQLKits.createKit(kitName.toLowerCase(), invByteArray.toByteArray(), armByteArray.toByteArray(), price, cooldown, limit, creator.getUniqueId().toString());
+//            SQLKits.createKit(kitName.toLowerCase(), invByteArray.toByteArray(), armByteArray.toByteArray(), price, cooldown, limit, creator.getUniqueId().toString());
+            SQLKits.createKit(kitName.toLowerCase(), inventory, armor, price, cooldown, limit, creator.getUniqueId().toString());
         }
     }
 
     public void setInventory(ItemStack[] inventory) {
         this.inventory = inventory;
-
-        ByteArrayOutputStream invByteArray = new ByteArrayOutputStream();
-        try {
-            BukkitObjectOutputStream invObjOS = new BukkitObjectOutputStream(invByteArray);
-            invObjOS.writeObject(inventory);
-            invObjOS.close();
-        } catch (IOException ioexception) {
-            ioexception.printStackTrace();
-        }
-
-        SQLKits.setInventory(kitName, invByteArray.toByteArray());
+        SQLKits.setInventory(kitName, inventory);
     }
 
     public void setArmor(ItemStack[] armor) {
         this.armor = armor;
-
-        ByteArrayOutputStream invByteArray = new ByteArrayOutputStream();
-        try {
-            BukkitObjectOutputStream invObjOS = new BukkitObjectOutputStream(invByteArray);
-            invObjOS.writeObject(armor);
-            invObjOS.close();
-        } catch (IOException ioexception) {
-            ioexception.printStackTrace();
-        }
-
-        SQLKits.setArmor(kitName, invByteArray.toByteArray());
+        SQLKits.setArmor(kitName, armor);
     }
 
     public void setLimit(int limit) {

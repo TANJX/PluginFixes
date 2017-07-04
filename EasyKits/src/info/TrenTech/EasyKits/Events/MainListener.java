@@ -150,11 +150,11 @@ public class MainListener implements Listener {
             return;
         }
 
-        if (!(player.getInventory().getItemInMainHand().getType() == Material.BOOK && player.getInventory().getItemInMainHand().getItemMeta().hasDisplayName())) {
+        if (!(player.getInventory().getItemInHand().getType() == Material.BOOK && player.getInventory().getItemInHand().getItemMeta().hasDisplayName())) {
             return;
         }
 
-        if (!player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("EasyKits")) {
+        if (!player.getInventory().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("EasyKits")) {
             return;
         }
 
@@ -163,6 +163,7 @@ public class MainListener implements Listener {
 
     @EventHandler(priority = EventPriority.MONITOR)
     public void onKitEquipEvent(KitPlayerEquipEvent event) {
+
         Kit kit = event.getKit();
         Player player = event.getPlayer();
         KitUser kitUser = event.getKitUser();

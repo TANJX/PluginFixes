@@ -4,6 +4,7 @@ import info.TrenTech.EasyKits.Commands.CommandHandler;
 import info.TrenTech.EasyKits.Events.MainListener;
 import info.TrenTech.EasyKits.Events.SignListener;
 import info.TrenTech.EasyKits.Kit.Kit;
+import info.TrenTech.EasyKits.SQL.PluginFile;
 import info.TrenTech.EasyKits.SQL.SQLKits;
 import info.TrenTech.EasyKits.SQL.SQLPlayers;
 import info.TrenTech.EasyKits.SQL.SQLUtils;
@@ -30,6 +31,8 @@ public class EasyKits extends JavaPlugin {
     public boolean econSupport = true;
     private CommandHandler cmdExecutor;
     public static HashMap<String, String> messages = new HashMap<String, String>();
+
+    public static PluginFile kitFile;
 
     @Override
     public void onEnable() {
@@ -58,10 +61,12 @@ public class EasyKits extends JavaPlugin {
             return;
         }
 
-        if (!SQLKits.tableExist()) {
-            SQLKits.createTable();
-            logger.info("Creating Database tables!");
-        }
+        kitFile = new PluginFile(this, "kits.yml");
+
+//        if (!SQLKits.tableExist()) {
+//            SQLKits.createTable();
+//            logger.info("Creating Database tables!");
+//        }
 
         Collection<? extends Player> onlinePlayers = getServer().getOnlinePlayers();
         for (Player player : onlinePlayers) {
@@ -70,6 +75,7 @@ public class EasyKits extends JavaPlugin {
         fixKitValues();
         fixPlayerValues();
         fixConfigValues();
+        getLogger().info("由 ISOTOPE Studio 修改");
     }
 
     public static void registerEvents(org.bukkit.plugin.Plugin plugin, Listener... listeners) {

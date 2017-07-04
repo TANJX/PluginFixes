@@ -1,0 +1,16 @@
+name: AdminSystem
+main: fr.cookyy_.admin.AdminSystemMain
+author: Cookyy_ ❤ 
+version: 2.0
+commands: 
+   admin:
+     description: Open GUI ❤  
+     permission: adminfr.admin
+     default: op
+   adminhelp:
+     description: Help plugin ❤ 
+     permission: adminfr.adminhelp
+   adminclear:
+     description: Clear Inventory ❤ 
+     permission: adminfr.clear
+   

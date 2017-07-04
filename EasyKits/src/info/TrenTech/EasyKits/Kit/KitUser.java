@@ -5,19 +5,17 @@ import info.TrenTech.EasyKits.Events.KitPlayerEquipEvent;
 import info.TrenTech.EasyKits.Events.KitPlayerLimitEvent;
 import info.TrenTech.EasyKits.Events.WithdrawMoneyEvent;
 import info.TrenTech.EasyKits.SQL.SQLPlayers;
-import info.TrenTech.EasyKits.Utils.Notifications;
 import info.TrenTech.EasyKits.Utils.Utils;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryType;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class KitUser {
@@ -130,140 +128,47 @@ public class KitUser {
     public boolean canAfford() {
         double price = kit.getPrice();
         double balance = Utils.getPluginContainer().economy.getBalance(user);
-        if (balance < price) {
-            return false;
-        }
-        return true;
+        return !(balance < price);
     }
 
     public boolean applyKit() throws Exception {
         KitPlayerEquipEvent event = new KitPlayerEquipEvent(user, kit, this);
+
+        ItemStack[] inv = kit.getInventory();
+        ItemStack[] arm = kit.getArmor();
+        List<ItemStack> items = new ArrayList<>();
+        for (ItemStack item : arm) {
+            if (item != null) {
+                items.add(item);
+            }
+        }
+        for (ItemStack item : inv) {
+            if (item != null) {
+                items.add(item);
+            }
+        }
+        ItemStack[] itemList = new ItemStack[items.size()];
+        items.toArray(itemList);
+        int empty = 36;
+        for (ItemStack itemStack : user.getInventory().getContents()) {
+            if (itemStack != null) {
+                empty--;
+            }
+        }
+        if (itemList.length > empty) {
+            user.sendMessage(ChatColor.RED + "由于你的背包不够大领取不了礼包");
+            return false;
+        }
+
+
         Bukkit.getServer().getPluginManager().callEvent(event);
 
         if (!event.isCancelled()) {
-            ItemStack[] inv = kit.getInventory();
-            ItemStack[] arm = kit.getArmor();
-            Inventory tempInv = Utils.getPluginContainer().getServer().createInventory(user, InventoryType.PLAYER);
-            Inventory tempArm = Utils.getPluginContainer().getServer().createInventory(user, 9);
-            tempInv.setContents(user.getInventory().getContents());
-            tempArm.setContents(user.getInventory().getArmorContents());
-            int index = 0;
-            for (ItemStack item : inv) {
-                if (item == null) {
-                    item = new ItemStack(Material.AIR);
-                }
-                if (tempInv.getItem(index) == null) {
-                    tempInv.setItem(index, item);
-                } else if (tempInv.firstEmpty() > -1) {
-                    tempInv.addItem(item);
-                } else {
-                    int amount = item.getAmount();
-                    HashMap<Integer, ? extends ItemStack> matchItem = user.getInventory().all(item);
-                    int size = matchItem.size();
-                    if (size < item.getMaxStackSize()) {
-                        size = item.getMaxStackSize() - size;
-                        if (amount <= size) {
-                            tempInv.setItem(index, item);
-                        } else {
-                            Notifications notify = new Notifications("Inventory-Space", kit.getName(), user.getName(), 0, null, 0);
-                            user.sendMessage(notify.getMessage());
-                            return false;
-                        }
-                    } else {
-                        for (int i = 10; i <= 36; i++) {
-                            if (i == 36) {
-                                Notifications notify = new Notifications("Inventory-Space", kit.getName(), user.getName(), 0, null, 0);
-                                user.sendMessage(notify.getMessage());
-                                return false;
-                            }
-                            size = size - item.getMaxStackSize();
-                            if (size < item.getMaxStackSize()) {
-                                if (amount <= size) {
-                                    tempInv.setItem(index, item);
-                                }
-                            }
-                        }
-                        Notifications notify = new Notifications("Inventory-Space", kit.getName(), user.getName(), 0, null, 0);
-                        user.sendMessage(notify.getMessage());
-                        return false;
-                    }
-                }
-                index++;
-            }
-            index = 0;
-            for (ItemStack item : arm) {
-                if (index == 0) {
-                    if (item != null) {
-                        if (tempArm.getItem(0) == null) {
-                            tempArm.setItem(0, item);
-                        } else if (tempInv.firstEmpty() > -1) {
-                            tempInv.addItem(item);
-                        } else {
-                            Notifications notify = new Notifications("Inventory-Space", kit.getName(), user.getName(), 0, null, 0);
-                            user.sendMessage(notify.getMessage());
-                            return false;
-                        }
-                    }
-                }
-                if (index == 1) {
-                    if (item != null) {
-                        if (tempArm.getItem(1) == null) {
-                            tempArm.setItem(1, item);
-                        } else if (tempInv.firstEmpty() > -1) {
-                            tempInv.addItem(item);
-                        } else {
-                            Notifications notify = new Notifications("Inventory-Space", kit.getName(), user.getName(), 0, null, 0);
-                            user.sendMessage(notify.getMessage());
-                            return false;
-                        }
-                    }
-                }
-                if (index == 2) {
-                    if (item != null) {
-                        if (tempArm.getItem(2) == null) {
-                            tempArm.setItem(2, item);
-                        } else if (tempInv.firstEmpty() > -1) {
-                            tempInv.addItem(item);
-                        } else {
-                            Notifications notify = new Notifications("Inventory-Space", kit.getName(), user.getName(), 0, null, 0);
-                            user.sendMessage(notify.getMessage());
-                            return false;
-                        }
-                    }
-                }
-                if (index == 3) {
-                    if (item != null) {
-                        if (tempArm.getItem(3) == null) {
-                            tempArm.setItem(3, item);
-                        } else if (tempInv.firstEmpty() > -1) {
-                            tempInv.addItem(item);
-                        } else {
-                            Notifications notify = new Notifications("Inventory-Space", kit.getName(), user.getName(), 0, null, 0);
-                            user.sendMessage(notify.getMessage());
-                            return false;
-                        }
-                    }
-                    break;
-                }
-                index++;
-            }
-            user.getInventory().setContents(tempInv.getContents());
-            if (tempArm.getItem(0) != null) {
-                user.getInventory().setBoots(tempArm.getItem(0));
-            }
-            if (tempArm.getItem(1) != null) {
-                user.getInventory().setLeggings(tempArm.getItem(1));
-            }
-            if (tempArm.getItem(2) != null) {
-                user.getInventory().setChestplate(tempArm.getItem(2));
-            }
-            if (tempArm.getItem(3) != null) {
-                user.getInventory().setHelmet(tempArm.getItem(3));
-            }
+            user.getInventory().addItem(itemList);
             SQLPlayers.setObtained(userUUID, kit.getName(), "TRUE");
             return true;
         }
+
         return false;
     }
-
 }

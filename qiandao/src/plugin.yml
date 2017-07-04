@@ -1,0 +1,10 @@
+name: qiandao
+main: toin.cc.qiandao
+version: 1.2
+description: 南城以南1
+author: 瑾辰
+prefix: 签到
+commands:
+  qiandao:
+    description: 打开签到
+    usage: /qiandao

@@ -1,0 +1,45 @@
+#原创作者为：瑾辰(南城以南)
+#不管以任何途径获得本插件,请注明出处！
+#变量：%player%   代表玩家
+#如果修改配置，需要重启服务器方可生效
+mysql:
+  ip: '127.0.0.1:3306'
+  dbname: 'qiandao'
+  dbuser: 'root'
+  dbpass: '147258369zx'
+config:
+  jieshao:
+  - '签到7次'
+  - '  -奖励xx'
+  - '签到15次'
+  - '  -奖励xx'
+#下面是随机奖励，以指令形式，每次签到都会触发。你自己改。如果只有一条，那么就是固定奖励。
+  jiangli:
+#这是普通玩家的
+    vip0:
+    - 'eco give %player% 1000'
+    - 'eco give %player% 5'
+#这是VIP1的。以此类推，权限格式：qiandao.jiangli.vip1
+    vip1:
+    - 'money give %player% 1000'
+    - 'points give %player% 5'
+    vip2:
+    - 'money give %player% 1000'
+    - 'points give %player% 5'
+    vip3:
+    - 'money give %player% 1000'
+    - 'points give %player% 5'
+    vip4:
+    - 'money give %player% 1000'
+    - 'points give %player% 5'
+#下面是累计签到奖励，会全部触发。
+  leiji:
+    7:
+    - 'money give %player% 1000'
+    - 'points give %player% 5'
+    15:
+    - 'money give %player% 1000'
+    - 'points give %player% 5'
+    28:
+    - 'money give %player% 1000'
+    - 'points give %player% 5'
