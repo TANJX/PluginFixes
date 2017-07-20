@@ -15,36 +15,36 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class WorldGUI implements Listener {
 
     public static void openWorldGUI(Player player) {
-        Inventory world = Bukkit.createInventory(null, 27, "Â§aä¸–ç•Œ");
+        Inventory world = Bukkit.createInventory(null, 27, "¡ìaÊÀ½ç");
 
         ItemStack kick = new ItemStack(Material.BLAZE_ROD);
         ItemMeta kickmeta = kick.getItemMeta();
-        kickmeta.setDisplayName("Â§cè¸¢å‡ºæ‰€æœ‰åœ¨çº¿ç©å®¶");
+        kickmeta.setDisplayName("¡ìcÌß³öËùÓĞÔÚÏßÍæ¼Ò");
         kick.setItemMeta(kickmeta);
 
         ItemStack kill = new ItemStack(Material.BONE);
         ItemMeta killmeta = kill.getItemMeta();
-        killmeta.setDisplayName("Â§7æ€æ­»æ‰€æœ‰äºº");
+        killmeta.setDisplayName("¡ì7É±ËÀËùÓĞÈË");
         kill.setItemMeta(killmeta);
 
         ItemStack day = new ItemStack(Material.BUCKET);
         ItemMeta daymeta = day.getItemMeta();
-        daymeta.setDisplayName("Â§aç™½å¤©");
+        daymeta.setDisplayName("¡ìa°×Ìì");
         day.setItemMeta(daymeta);
 
         ItemStack night = new ItemStack(Material.LAVA_BUCKET);
         ItemMeta nightmeta = night.getItemMeta();
-        nightmeta.setDisplayName("Â§7æ™šä¸Š");
+        nightmeta.setDisplayName("¡ì7ÍíÉÏ");
         night.setItemMeta(nightmeta);
 
         ItemStack nop = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 5);
         ItemMeta nopmeta = nop.getItemMeta();
-        nopmeta.setDisplayName("Â§c---");
+        nopmeta.setDisplayName("¡ìc---");
         nop.setItemMeta(nopmeta);
 
         ItemStack main = new ItemStack(Material.NETHER_STAR);
         ItemMeta mainmeta = main.getItemMeta();
-        mainmeta.setDisplayName("Â§cè¿”å›");
+        mainmeta.setDisplayName("¡ìc·µ»Ø");
         main.setItemMeta(mainmeta);
 
         world.setItem(10, kick);
@@ -63,7 +63,7 @@ public class WorldGUI implements Listener {
 
     @EventHandler
     public void click(InventoryClickEvent event) {
-        if (!event.getInventory().getName().equalsIgnoreCase("Â§aä¸–ç•Œ")) {
+        if (!event.getInventory().getName().equalsIgnoreCase("¡ìaÊÀ½ç")) {
             return;
         }
         Player p = (Player) event.getWhoClicked();
@@ -76,7 +76,7 @@ public class WorldGUI implements Listener {
         switch (event.getCurrentItem().getType()) {
             case BLAZE_ROD:
                 for (Player playerp : Bukkit.getServer().getOnlinePlayers()) {
-                    playerp.kickPlayer("Â§cä½ è¢«ç®¡ç†å‘˜è¸¢å‡ºæœåŠ¡å™¨");
+                    playerp.kickPlayer("¡ìcÄã±»¹ÜÀíÔ±Ìß³ö·şÎñÆ÷");
                 }
                 break;
             case BONE:
@@ -86,12 +86,12 @@ public class WorldGUI implements Listener {
                 break;
             case BUCKET:
                 p.getWorld().setTime(1000L);
-                p.sendMessage(AdminSystemMain.prefix + "Â§eç™½å¤©äº†");
+                p.sendMessage(AdminSystemMain.prefix + "¡ìe°×ÌìÁË");
                 openWorldGUI(p);
                 break;
             case LAVA_BUCKET:
                 p.getWorld().setTime(14000L);
-                p.sendMessage(AdminSystemMain.prefix + "Â§eæ™šä¸Šäº†");
+                p.sendMessage(AdminSystemMain.prefix + "¡ìeÍíÉÏÁË");
                 openWorldGUI(p);
                 break;
             case NETHER_STAR:

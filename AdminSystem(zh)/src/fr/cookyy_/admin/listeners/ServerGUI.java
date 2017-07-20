@@ -15,36 +15,36 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class ServerGUI implements Listener {
 
     public static void openServerGUI(Player player) {
-        Inventory server = Bukkit.createInventory(null, 27, "Â§cæœåŠ¡å™¨");
+        Inventory server = Bukkit.createInventory(null, 27, "¡ìc·şÎñÆ÷");
 
         ItemStack stop = new ItemStack(Material.PAPER);
         ItemMeta stopmeta = stop.getItemMeta();
-        stopmeta.setDisplayName("Â§4Â§lå…³é—­æœåŠ¡å™¨");
+        stopmeta.setDisplayName("¡ì4¡ìl¹Ø±Õ·şÎñÆ÷");
         stop.setItemMeta(stopmeta);
 
         ItemStack reload = new ItemStack(Material.ARROW);
         ItemMeta reloadmeta = reload.getItemMeta();
-        reloadmeta.setDisplayName("Â§3é‡è½½");
+        reloadmeta.setDisplayName("¡ì3ÖØÔØ");
         reload.setItemMeta(reloadmeta);
 
         ItemStack whitelist = new ItemStack(Material.WATER_BUCKET);
         ItemMeta whitelistmeta = whitelist.getItemMeta();
-        whitelistmeta.setDisplayName("Â§fÂ§lç™½åå•");
+        whitelistmeta.setDisplayName("¡ìf¡ìl°×Ãûµ¥");
         whitelist.setItemMeta(whitelistmeta);
 
         ItemStack difficulty = new ItemStack(Material.EYE_OF_ENDER);
         ItemMeta difficultymeta = difficulty.getItemMeta();
-        difficultymeta.setDisplayName("Â§aéš¾åº¦");
+        difficultymeta.setDisplayName("¡ìaÄÑ¶È");
         difficulty.setItemMeta(difficultymeta);
 
         ItemStack main = new ItemStack(Material.NETHER_STAR);
         ItemMeta mainmeta = main.getItemMeta();
-        mainmeta.setDisplayName("Â§cè¿”å›");
+        mainmeta.setDisplayName("¡ìc·µ»Ø");
         main.setItemMeta(mainmeta);
 
         ItemStack nop = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 14);
         ItemMeta nopmeta = nop.getItemMeta();
-        nopmeta.setDisplayName("Â§c---");
+        nopmeta.setDisplayName("¡ìc---");
         nop.setItemMeta(nopmeta);
 
         server.setItem(10, stop);
@@ -63,7 +63,7 @@ public class ServerGUI implements Listener {
 
     @EventHandler
     public void click(InventoryClickEvent event) {
-        if (!event.getInventory().getName().equalsIgnoreCase("Â§cæœåŠ¡å™¨")) {
+        if (!event.getInventory().getName().equalsIgnoreCase("¡ìc·şÎñÆ÷")) {
             return;
         }
         Player p = (Player) event.getWhoClicked();
@@ -78,9 +78,9 @@ public class ServerGUI implements Listener {
                 break;
             case ARROW:
                 p.closeInventory();
-                p.sendMessage(AdminSystemMain.prefix + "Â§cé‡è½½");
+                p.sendMessage(AdminSystemMain.prefix + "¡ìcÖØÔØ");
                 Bukkit.getServer().reload();
-                p.sendMessage(AdminSystemMain.prefix + "Â§aé‡è½½æˆåŠŸ");
+                p.sendMessage(AdminSystemMain.prefix + "¡ìaÖØÔØ³É¹¦");
                 openServerGUI(p);
                 break;
             case WATER_BUCKET:

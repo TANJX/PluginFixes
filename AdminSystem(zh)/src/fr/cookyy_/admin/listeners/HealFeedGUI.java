@@ -17,26 +17,26 @@ public class HealFeedGUI implements Listener {
     }
 
     public static void openHeelFeedGUI(Player player) {
-        Inventory hf = Bukkit.createInventory(null, 9, "Â§aæ²»ç–— Â§f/ Â§cé¥±é£Ÿ");
+        Inventory hf = Bukkit.createInventory(null, 9, "¡ìaÖÎÁÆ ¡ìf/ ¡ìc±¥Ê³");
 
         ItemStack heal = new ItemStack(Material.APPLE);
         ItemMeta healmeta = heal.getItemMeta();
-        healmeta.setDisplayName("Â§aæ²»ç–—");
+        healmeta.setDisplayName("¡ìaÖÎÁÆ");
         heal.setItemMeta(healmeta);
 
         ItemStack feed = new ItemStack(Material.COOKED_BEEF);
         ItemMeta feedmeta = feed.getItemMeta();
-        feedmeta.setDisplayName("Â§cé¥±é£Ÿ");
+        feedmeta.setDisplayName("¡ìc±¥Ê³");
         feed.setItemMeta(feedmeta);
 
         ItemStack main = new ItemStack(Material.NETHER_STAR);
         ItemMeta mainmeta = main.getItemMeta();
-        mainmeta.setDisplayName("Â§cè¿”å›ž");
+        mainmeta.setDisplayName("¡ìc·µ»Ø");
         main.setItemMeta(mainmeta);
 
         ItemStack nop = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 8);
         ItemMeta nopmeta = nop.getItemMeta();
-        nopmeta.setDisplayName("Â§c---");
+        nopmeta.setDisplayName("¡ìc---");
         nop.setItemMeta(nopmeta);
 
         hf.setItem(1, heal);
@@ -53,7 +53,7 @@ public class HealFeedGUI implements Listener {
 
     @EventHandler
     public void click(InventoryClickEvent event) {
-        if (!event.getInventory().getName().equalsIgnoreCase("Â§aæ²»ç–— Â§f/ Â§cé¥±é£Ÿ")) {
+        if (!event.getInventory().getName().equalsIgnoreCase("¡ìaÖÎÁÆ ¡ìf/ ¡ìc±¥Ê³")) {
             return;
         }
         Player p = (Player) event.getWhoClicked();
@@ -65,13 +65,13 @@ public class HealFeedGUI implements Listener {
         switch (event.getCurrentItem().getType()) {
             case APPLE:
                 p.setHealth(20.0D);
-                p.sendMessage(AdminSystemMain.prefix + "Â§aæ²»ç–—");
+                p.sendMessage(AdminSystemMain.prefix + "¡ìaÖÎÁÆ");
                 p.closeInventory();
                 openHeelFeedGUI(p);
                 break;
             case COOKED_BEEF:
                 p.setFoodLevel(20);
-                p.sendMessage(AdminSystemMain.prefix + "Â§cé¥±é£Ÿ");
+                p.sendMessage(AdminSystemMain.prefix + "¡ìc±¥Ê³");
                 p.closeInventory();
                 openHeelFeedGUI(p);
                 break;

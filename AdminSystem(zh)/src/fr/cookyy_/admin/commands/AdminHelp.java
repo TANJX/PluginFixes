@@ -13,28 +13,28 @@ public class AdminHelp implements org.bukkit.event.Listener, CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] arg3) {
         if (cmd.getName().equalsIgnoreCase("adminhelp")) {
             if (!(sender instanceof Player)) {
-                sender.sendMessage(ChatColor.RED + "è¿™æ˜¯ç©å®¶æ‰§è¡Œçš„å‘½ä»¤");
+                sender.sendMessage(ChatColor.RED + "ÕâÊÇÍæ¼ÒÖ´ĞĞµÄÃüÁî");
                 return false;
             }
             if (!sender.hasPermission("adminfr.adminhelp")) {
-                sender.sendMessage(ChatColor.RED + "ä½ æ²¡æœ‰æƒé™");
+                sender.sendMessage(ChatColor.RED + "ÄãÃ»ÓĞÈ¨ÏŞ");
                 return false;
             }
             Player p = (Player) sender;
-            p.sendMessage("Â§6å‘½ä»¤:");
+            p.sendMessage("¡ì6ÃüÁî:");
             p.sendMessage("");
-            p.sendMessage("Â§e/admin Â§f- Â§bæ‰“å¼€èœå•");
-            p.sendMessage("Â§e/adminclear Â§f- Â§bæ¸…ç©ºèƒŒåŒ…");
-            p.sendMessage("Â§e/adminclear <ç©å®¶å> Â§f- Â§bæ¸…ç©ºç©å®¶èƒŒåŒ…");
+            p.sendMessage("¡ìe/admin ¡ìf- ¡ìb´ò¿ª²Ëµ¥");
+            p.sendMessage("¡ìe/adminclear ¡ìf- ¡ìbÇå¿Õ±³°ü");
+            p.sendMessage("¡ìe/adminclear <Íæ¼ÒÃû> ¡ìf- ¡ìbÇå¿ÕÍæ¼Ò±³°ü");
             p.sendMessage("");
-            p.sendMessage("Â§cæƒé™:");
-            p.sendMessage("Â§e/admin Â§f- Â§badminfr.admin");
-            p.sendMessage("Â§e/adminhelp Â§f- Â§badminfr.adminhelp");
-            p.sendMessage("Â§e/adminclear Â§f- Â§badminfr.clearinventory");
-            p.sendMessage("Â§e/adminclear Â§a<ç©å®¶å> Â§f- Â§badminfr.clearinventory");
+            p.sendMessage("¡ìcÈ¨ÏŞ:");
+            p.sendMessage("¡ìe/admin ¡ìf- ¡ìbadminfr.admin");
+            p.sendMessage("¡ìe/adminhelp ¡ìf- ¡ìbadminfr.adminhelp");
+            p.sendMessage("¡ìe/adminclear ¡ìf- ¡ìbadminfr.clearinventory");
+            p.sendMessage("¡ìe/adminclear ¡ìa<Íæ¼ÒÃû> ¡ìf- ¡ìbadminfr.clearinventory");
             p.sendMessage("");
-            p.sendMessage("Â§6ç‰ˆæœ¬: 2.0");
-            p.sendMessage("Â§6ISOTOPE Studioæ±‰åŒ–");
+            p.sendMessage("¡ì6°æ±¾: 2.0");
+            p.sendMessage("¡ì6ISOTOPE Studioºº»¯");
             return true;
         }
         return false;

@@ -18,31 +18,31 @@ public class OtherGUI
         implements Listener {
 
     public static void openOtherGUI(Player player) {
-        Inventory others = Bukkit.createInventory(null, 9, "Â§2å…¶ä»–");
+        Inventory others = Bukkit.createInventory(null, 9, "¡ì2ÆäËû");
 
         ItemStack ban = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
         ItemMeta banm = ban.getItemMeta();
-        banm.setDisplayName("Â§4è¢«å°ç¦çš„ç©å®¶");
+        banm.setDisplayName("¡ì4±»·â½ûµÄÍæ¼Ò");
         ban.setItemMeta(banm);
 
         ItemStack cleari = new ItemStack(Material.PAPER);
         ItemMeta clearim = cleari.getItemMeta();
         ArrayList<String> lore = new ArrayList();
-        lore.add("Â§cæ¸…ç©ºç©å®¶èƒŒåŒ…:");
-        lore.add("Â§a/adminclear <ç©å®¶å>");
+        lore.add("¡ìcÇå¿ÕÍæ¼Ò±³°ü:");
+        lore.add("¡ìa/adminclear <Íæ¼ÒÃû>");
         clearim.setLore(lore);
-        clearim.setDisplayName("Â§7æ¸…ç©ºèƒŒåŒ…");
+        clearim.setDisplayName("¡ì7Çå¿Õ±³°ü");
         cleari.setItemMeta(clearim);
 
 
         ItemStack clearc = new ItemStack(Material.ANVIL);
         ItemMeta clearcm = clearc.getItemMeta();
-        clearcm.setDisplayName("Â§cæ¸…ç©ºèŠå¤©è®°å½•");
+        clearcm.setDisplayName("¡ìcÇå¿ÕÁÄÌì¼ÇÂ¼");
         clearc.setItemMeta(clearcm);
 
         ItemStack nop = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 5);
         ItemMeta nopmeta = nop.getItemMeta();
-        nopmeta.setDisplayName("Â§c---");
+        nopmeta.setDisplayName("¡ìc---");
         nop.setItemMeta(nopmeta);
 
         others.setItem(1, ban);
@@ -59,7 +59,7 @@ public class OtherGUI
 
     @EventHandler
     public void click(InventoryClickEvent event) {
-        if (!event.getInventory().getName().equalsIgnoreCase("Â§2å…¶ä»–")) {
+        if (!event.getInventory().getName().equalsIgnoreCase("¡ì2ÆäËû")) {
             return;
         }
         Player p = (Player) event.getWhoClicked();
@@ -76,7 +76,7 @@ public class OtherGUI
                 for (int i = 0; i < 100; i++) {
                     Bukkit.broadcastMessage("");
                 }
-                Bukkit.broadcastMessage("Â§eèŠå¤©è®°å½•è¢« Â§c" + p.getName()+" Â§eæ¸…é™¤");
+                Bukkit.broadcastMessage("¡ìeÁÄÌì¼ÇÂ¼±» ¡ìc" + p.getName()+" ¡ìeÇå³ı");
                 break;
             case PAPER:
                 p.performCommand("adminclear");

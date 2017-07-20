@@ -17,31 +17,31 @@ public class WhiteListGUI implements Listener {
     }
 
     public static void openWhitelistGUI(Player player) {
-        Inventory inv3 = Bukkit.createInventory(null, 27, "Â§fÂ§lç™½åå•");
+        Inventory inv3 = Bukkit.createInventory(null, 27, "¡ìf¡ìl°×Ãûµ¥");
 
         ItemStack off = new ItemStack(Material.REDSTONE_BLOCK);
         ItemMeta offmeta = off.getItemMeta();
-        offmeta.setDisplayName("Â§cå…³é—­");
+        offmeta.setDisplayName("¡ìc¹Ø±Õ");
         off.setItemMeta(offmeta);
 
         ItemStack on = new ItemStack(Material.EMERALD_BLOCK);
         ItemMeta onmeta = on.getItemMeta();
-        onmeta.setDisplayName("Â§aå¯åŠ¨");
+        onmeta.setDisplayName("¡ìaÆô¶¯");
         on.setItemMeta(onmeta);
 
         ItemStack gl = new ItemStack(Material.STAINED_GLASS_PANE);
         ItemMeta glmeta = gl.getItemMeta();
-        glmeta.setDisplayName("Â§c---");
+        glmeta.setDisplayName("¡ìc---");
         gl.setItemMeta(glmeta);
 
         ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
         ItemMeta meta = skull.getItemMeta();
-        meta.setDisplayName("Â§fÂ§lç™½åå•ç©å®¶");
+        meta.setDisplayName("¡ìf¡ìl°×Ãûµ¥Íæ¼Ò");
         skull.setItemMeta(meta);
 
         ItemStack bac = new ItemStack(Material.PAPER);
         ItemMeta bacmeta = bac.getItemMeta();
-        bacmeta.setDisplayName("Â§cè¿”å›");
+        bacmeta.setDisplayName("¡ìc·µ»Ø");
         bac.setItemMeta(bacmeta);
 
         inv3.setItem(22, bac);
@@ -62,7 +62,7 @@ public class WhiteListGUI implements Listener {
 
     @EventHandler
     public void clickWhitelist(InventoryClickEvent event) {
-        if (!event.getInventory().getName().equalsIgnoreCase("Â§fÂ§lç™½åå•")) {
+        if (!event.getInventory().getName().equalsIgnoreCase("¡ìf¡ìl°×Ãûµ¥")) {
             return;
         }
         Player p = (Player) event.getWhoClicked();
@@ -77,13 +77,13 @@ public class WhiteListGUI implements Listener {
                 break;
             case REDSTONE_BLOCK:
                 Bukkit.getServer().setWhitelist(false);
-                p.sendMessage(AdminSystemMain.prefix + "Â§fç™½åå•: Â§cå¯ç”¨");
+                p.sendMessage(AdminSystemMain.prefix + "¡ìf°×Ãûµ¥: ¡ìcÆôÓÃ");
                 p.closeInventory();
                 openWhitelistGUI(p);
                 break;
             case EMERALD_BLOCK:
                 Bukkit.getServer().setWhitelist(true);
-                p.sendMessage(AdminSystemMain.prefix + "Â§fç™½åå•: Â§aå…³é—­");
+                p.sendMessage(AdminSystemMain.prefix + "¡ìf°×Ãûµ¥: ¡ìa¹Ø±Õ");
                 p.closeInventory();
                 openWhitelistGUI(p);
                 break;

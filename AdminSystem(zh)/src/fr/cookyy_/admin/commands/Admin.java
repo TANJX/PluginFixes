@@ -27,33 +27,33 @@ public class Admin implements Listener, CommandExecutor {
 
         ItemStack server = new ItemStack(Material.REDSTONE);
         ItemMeta serverm = server.getItemMeta();
-        serverm.setDisplayName("Â§cæœåŠ¡å™¨");
+        serverm.setDisplayName("¡ìc·şÎñÆ÷");
         server.setItemMeta(serverm);
 
         ItemStack world = new ItemStack(Material.WATCH);
         ItemMeta worldm = world.getItemMeta();
-        worldm.setDisplayName("Â§aä¸–ç•Œ");
+        worldm.setDisplayName("¡ìaÊÀ½ç");
         world.setItemMeta(worldm);
 
         ItemStack playerp = new ItemStack(Material.ARMOR_STAND);
         ItemMeta playerpm = playerp.getItemMeta();
-        playerpm.setDisplayName("Â§6ç©å®¶");
+        playerpm.setDisplayName("¡ì6Íæ¼Ò");
         playerp.setItemMeta(playerpm);
 
         ItemStack others = new ItemStack(Material.STICK);
         ItemMeta othersm = others.getItemMeta();
         othersm.addEnchant(Enchantment.DAMAGE_ALL, 1, false);
-        othersm.setDisplayName("Â§2å…¶ä»–");
+        othersm.setDisplayName("¡ì2ÆäËû");
         others.setItemMeta(othersm);
 
         ItemStack exit = new ItemStack(Material.BARRIER);
         ItemMeta exitmeta = exit.getItemMeta();
-        exitmeta.setDisplayName("Â§cÂ§lâŒ å…³é—­ âŒ");
+        exitmeta.setDisplayName("¡ìc¡ìl? ¹Ø±Õ ?");
         exit.setItemMeta(exitmeta);
 
         ItemStack nop = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 0);
         ItemMeta nopmeta = nop.getItemMeta();
-        nopmeta.setDisplayName("Â§c---");
+        nopmeta.setDisplayName("¡ìc---");
         nop.setItemMeta(nopmeta);
 
         admin.setItem(10, server);
@@ -103,11 +103,11 @@ public class Admin implements Listener, CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] arg3) {
         if (cmd.getName().equalsIgnoreCase("admin")) {
             if (!(sender instanceof Player)) {
-                sender.sendMessage(ChatColor.RED + "è¿™æ˜¯ç©å®¶æ‰§è¡Œçš„å‘½ä»¤");
+                sender.sendMessage(ChatColor.RED + "ÕâÊÇÍæ¼ÒÖ´ĞĞµÄÃüÁî");
                 return false;
             }
             if (!sender.hasPermission("adminfr.admin")) {
-                sender.sendMessage(ChatColor.RED + "ä½ æ²¡æœ‰æƒé™");
+                sender.sendMessage(ChatColor.RED + "ÄãÃ»ÓĞÈ¨ÏŞ");
                 return false;
             }
             if (sender.isOp()) {

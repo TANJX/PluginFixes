@@ -17,26 +17,26 @@ public class GameModeGUI implements Listener {
     }
 
     public static void openGameModeGUI(Player player) {
-        Inventory fly = Bukkit.createInventory(null, 9, "Â§aæ¸¸æˆæ¨¡å¼");
+        Inventory fly = Bukkit.createInventory(null, 9, "¡ìaÓÎÏ·Ä£Ê½");
 
         ItemStack crea = new ItemStack(Material.DIAMOND);
         ItemMeta creameta = crea.getItemMeta();
-        creameta.setDisplayName("Â§båˆ›é€ ");
+        creameta.setDisplayName("¡ìb´´Ôì");
         crea.setItemMeta(creameta);
 
         ItemStack adventure = new ItemStack(Material.GRASS);
         ItemMeta adventuremeta = adventure.getItemMeta();
-        adventuremeta.setDisplayName("Â§bå†’é™©");
+        adventuremeta.setDisplayName("¡ìbÃ°ÏÕ");
         adventure.setItemMeta(adventuremeta);
 
         ItemStack survi = new ItemStack(Material.WOOD);
         ItemMeta survimeta = survi.getItemMeta();
-        survimeta.setDisplayName("Â§bç”Ÿå­˜");
+        survimeta.setDisplayName("¡ìbÉú´æ");
         survi.setItemMeta(survimeta);
 
         ItemStack nop = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 3);
         ItemMeta nopmeta = nop.getItemMeta();
-        nopmeta.setDisplayName("Â§c---");
+        nopmeta.setDisplayName("¡ìc---");
         nop.setItemMeta(nopmeta);
 
         fly.setItem(1, crea);
@@ -53,7 +53,7 @@ public class GameModeGUI implements Listener {
 
     @EventHandler
     public void click(InventoryClickEvent event) {
-        if (!event.getInventory().getName().equalsIgnoreCase("Â§aæ¸¸æˆæ¨¡å¼")) {
+        if (!event.getInventory().getName().equalsIgnoreCase("¡ìaÓÎÏ·Ä£Ê½")) {
             return;
         }
         Player p = (Player) event.getWhoClicked();
@@ -65,19 +65,19 @@ public class GameModeGUI implements Listener {
         switch (event.getCurrentItem().getType()) {
             case DIAMOND:
                 p.setGameMode(GameMode.CREATIVE);
-                p.sendMessage(AdminSystemMain.prefix + "Â§fæ¸¸æˆæ¨¡å¼: Â§aåˆ›é€ ");
+                p.sendMessage(AdminSystemMain.prefix + "¡ìfÓÎÏ·Ä£Ê½: ¡ìa´´Ôì");
                 p.closeInventory();
                 openGameModeGUI(p);
                 break;
             case GRASS:
                 p.setGameMode(GameMode.ADVENTURE);
-                p.sendMessage(AdminSystemMain.prefix + "Â§fæ¸¸æˆæ¨¡å¼: Â§aå†’é™©");
+                p.sendMessage(AdminSystemMain.prefix + "¡ìfÓÎÏ·Ä£Ê½: ¡ìaÃ°ÏÕ");
                 p.closeInventory();
                 openGameModeGUI(p);
                 break;
             case WOOD:
                 p.setGameMode(GameMode.SURVIVAL);
-                p.sendMessage(AdminSystemMain.prefix + "Â§fæ¸¸æˆæ¨¡å¼: Â§aç”Ÿå­˜");
+                p.sendMessage(AdminSystemMain.prefix + "¡ìfÓÎÏ·Ä£Ê½: ¡ìaÉú´æ");
                 p.closeInventory();
                 openGameModeGUI(p);
                 break;

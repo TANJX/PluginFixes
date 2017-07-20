@@ -23,13 +23,13 @@ public class AdminPlayerJoin implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         if (event.getPlayer().hasPermission("adminfr.admin")) {
             Player p = event.getPlayer();
-//            p.sendMessage(AdminSystemMain.prefix + "Â§aLet's GO ?");
+//            p.sendMessage(AdminSystemMain.prefix + "¡ìaLet's GO ?");
             event.getPlayer().getInventory();
             ItemStack join = new ItemStack(Material.SUGAR, 1);
             ItemMeta joinm = join.getItemMeta();
-            joinm.setDisplayName("Â§bç®¡ç†å‘˜èœå•");
+            joinm.setDisplayName("¡ìb¹ÜÀíÔ±²Ëµ¥");
             ArrayList<String> lore = new ArrayList<>();
-            lore.add("Â§7å³é”®æ‰“å¼€");
+            lore.add("¡ì7ÓÒ¼ü´ò¿ª");
             joinm.setLore(lore);
             join.setItemMeta(joinm);
             event.getPlayer().getInventory().setItem(4, new ItemStack(join));

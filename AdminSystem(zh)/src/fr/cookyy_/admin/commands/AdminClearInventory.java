@@ -16,31 +16,31 @@ public class AdminClearInventory
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("adminclear")) {
             if (!(sender instanceof Player)) {
-                sender.sendMessage(ChatColor.RED + "è¿™æ˜¯ç©å®¶æ‰§è¡Œçš„å‘½ä»¤");
+                sender.sendMessage(ChatColor.RED + "ÕâÊÇÍæ¼ÒÖ´ĞĞµÄÃüÁî");
                 return false;
             }
             Player p = (Player) sender;
             if (!p.hasPermission("adminfr.clear")) {
-                p.sendMessage(AdminSystemMain.prefix + "Â§lä½ æ²¡æœ‰æƒé™");
+                p.sendMessage(AdminSystemMain.prefix + "¡ìlÄãÃ»ÓĞÈ¨ÏŞ");
                 return true;
             }
             if (args.length == 0) {
-                p.sendMessage(AdminSystemMain.prefix + "Â§aèƒŒåŒ…å·²æ¸…ç©º!");
+                p.sendMessage(AdminSystemMain.prefix + "¡ìa±³°üÒÑÇå¿Õ!");
                 p.getInventory().clear();
                 return true;
             }
             if (args.length == 1) {
                 Player t = Bukkit.getPlayer(args[0]);
                 if (t == null) {
-                    p.sendMessage("Â§cç©å®¶ä¸åœ¨çº¿");
+                    p.sendMessage("¡ìcÍæ¼Ò²»ÔÚÏß");
                     return true;
                 }
-                p.sendMessage(AdminSystemMain.prefix + "Â§cä½ çš„èƒŒåŒ…è¢«" + "Â§6" + t.getName() + "Â§cæ¸…ç©ºäº†");
+                p.sendMessage(AdminSystemMain.prefix + "¡ìcÄãµÄ±³°ü±»" + "¡ì6" + t.getName() + "¡ìcÇå¿ÕÁË");
                 t.getInventory().clear();
-                t.sendMessage(AdminSystemMain.prefix + "Â§7ç©å®¶" + p.getName() + " Â§7çš„èƒŒåŒ…å·²è¢«æ¸…ç©º");
+                t.sendMessage(AdminSystemMain.prefix + "¡ì7Íæ¼Ò" + p.getName() + " ¡ì7µÄ±³°üÒÑ±»Çå¿Õ");
                 return true;
             }
-            p.sendMessage("Â§cç”¨æ³•: /clear <ç©å®¶å>");
+            p.sendMessage("¡ìcÓÃ·¨: /clear <Íæ¼ÒÃû>");
             return false;
         }
         return false;

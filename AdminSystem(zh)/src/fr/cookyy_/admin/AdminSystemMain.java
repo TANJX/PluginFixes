@@ -12,7 +12,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class AdminSystemMain
         extends JavaPlugin {
-    public static String prefix = ChatColor.translateAlternateColorCodes('&', "&b&lç®¡ç†å‘˜ â€º ");
+    public static String prefix = ChatColor.translateAlternateColorCodes('&', "&b&l¹ÜÀíÔ± ? ");
     private static AdminSystemMain plugin;
 
     public AdminSystemMain() {

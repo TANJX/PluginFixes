@@ -16,26 +16,26 @@ public class PlayerGUI implements Listener {
     }
 
     public static void openPlayerGUI(Player player) {
-        Inventory adminp = Bukkit.createInventory(null, 27, "Â§6ç©å®¶");
+        Inventory adminp = Bukkit.createInventory(null, 27, "¡ì6Íæ¼Ò");
 
         ItemStack healfeed = new ItemStack(Material.BREAD);
         ItemMeta healfeedmeta = healfeed.getItemMeta();
-        healfeedmeta.setDisplayName("Â§aæ²»ç–— Â§f/ Â§cé¥±é£Ÿ");
+        healfeedmeta.setDisplayName("¡ìaÖÎÁÆ ¡ìf/ ¡ìc±¥Ê³");
         healfeed.setItemMeta(healfeedmeta);
 
         ItemStack gm = new ItemStack(Material.GRASS);
         ItemMeta gmm = gm.getItemMeta();
-        gmm.setDisplayName("Â§aæ¸¸æˆæ¨¡å¼");
+        gmm.setDisplayName("¡ìaÓÎÏ·Ä£Ê½");
         gm.setItemMeta(gmm);
 
         ItemStack main = new ItemStack(Material.NETHER_STAR);
         ItemMeta mainmeta = main.getItemMeta();
-        mainmeta.setDisplayName("Â§cè¿”å›");
+        mainmeta.setDisplayName("¡ìc·µ»Ø");
         main.setItemMeta(mainmeta);
 
         ItemStack nop = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 4);
         ItemMeta nopmeta = nop.getItemMeta();
-        nopmeta.setDisplayName("Â§c---");
+        nopmeta.setDisplayName("¡ìc---");
         nop.setItemMeta(nopmeta);
 
         adminp.setItem(10, healfeed);
@@ -52,7 +52,7 @@ public class PlayerGUI implements Listener {
 
     @EventHandler
     public void click(InventoryClickEvent event) {
-        if (!event.getInventory().getName().equalsIgnoreCase("Â§6ç©å®¶")) {
+        if (!event.getInventory().getName().equalsIgnoreCase("¡ì6Íæ¼Ò")) {
             return;
         }
         Player p = (Player) event.getWhoClicked();

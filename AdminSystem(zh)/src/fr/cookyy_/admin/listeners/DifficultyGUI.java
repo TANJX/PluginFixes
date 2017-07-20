@@ -17,36 +17,36 @@ public class DifficultyGUI implements Listener {
     }
 
     public static void openDifficultyGUI(Player player) {
-        Inventory difficulty = Bukkit.createInventory(null, 27, "Â§aéš¾åº¦");
+        Inventory difficulty = Bukkit.createInventory(null, 27, "¡ìaÄÑ¶È");
 
         ItemStack dirt = new ItemStack(Material.DIRT);
         ItemMeta dirtmeta = dirt.getItemMeta();
-        dirtmeta.setDisplayName("Â§få’Œå¹³");
+        dirtmeta.setDisplayName("¡ìfºÍÆ½");
         dirt.setItemMeta(dirtmeta);
 
         ItemStack grass = new ItemStack(Material.GRASS);
         ItemMeta grassmeta = grass.getItemMeta();
-        grassmeta.setDisplayName("Â§7ç®€å•");
+        grassmeta.setDisplayName("¡ì7¼òµ¥");
         grass.setItemMeta(grassmeta);
 
         ItemStack gl = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 14);
         ItemMeta glmeta = gl.getItemMeta();
-        glmeta.setDisplayName("Â§c---");
+        glmeta.setDisplayName("¡ìc---");
         gl.setItemMeta(glmeta);
 
         ItemStack wood = new ItemStack(Material.WOOD);
         ItemMeta woodmeta = wood.getItemMeta();
-        woodmeta.setDisplayName("Â§aæ™®é€š");
+        woodmeta.setDisplayName("¡ìaÆÕÍ¨");
         wood.setItemMeta(woodmeta);
 
         ItemStack soul = new ItemStack(Material.SOUL_SAND);
         ItemMeta soulmeta = soul.getItemMeta();
-        soulmeta.setDisplayName("Â§4å›°éš¾");
+        soulmeta.setDisplayName("¡ì4À§ÄÑ");
         soul.setItemMeta(soulmeta);
 
         ItemStack apple = new ItemStack(Material.NETHER_STAR);
         ItemMeta applemeta = apple.getItemMeta();
-        applemeta.setDisplayName("Â§cè¿”å›");
+        applemeta.setDisplayName("¡ìc·µ»Ø");
         apple.setItemMeta(applemeta);
 
         difficulty.setItem(10, dirt);
@@ -65,7 +65,7 @@ public class DifficultyGUI implements Listener {
 
     @EventHandler
     public void clickDiff(InventoryClickEvent event) {
-        if (!event.getInventory().getName().equalsIgnoreCase("Â§aéš¾åº¦")) {
+        if (!event.getInventory().getName().equalsIgnoreCase("¡ìaÄÑ¶È")) {
             return;
         }
         Player p = (Player) event.getWhoClicked();
@@ -77,25 +77,25 @@ public class DifficultyGUI implements Listener {
         switch (event.getCurrentItem().getType()) {
             case DIRT:
                 Bukkit.getServer().getWorld(p.getWorld().getName()).setDifficulty(Difficulty.PEACEFUL);
-                p.sendMessage(AdminSystemMain.prefix + "Â§aéš¾åº¦: Â§bå’Œå¹³");
+                p.sendMessage(AdminSystemMain.prefix + "¡ìaÄÑ¶È: ¡ìbºÍÆ½");
                 p.closeInventory();
                 openDifficultyGUI(p);
                 break;
             case GRASS:
                 Bukkit.getServer().getWorld(p.getWorld().getName()).setDifficulty(Difficulty.EASY);
-                p.sendMessage(AdminSystemMain.prefix + "Â§aéš¾åº¦: Â§bç®€å•");
+                p.sendMessage(AdminSystemMain.prefix + "¡ìaÄÑ¶È: ¡ìb¼òµ¥");
                 p.closeInventory();
                 openDifficultyGUI(p);
                 break;
             case WOOD:
                 Bukkit.getServer().getWorld(p.getWorld().getName()).setDifficulty(Difficulty.NORMAL);
-                p.sendMessage(AdminSystemMain.prefix + "Â§aéš¾åº¦: Â§bæ™®é€š");
+                p.sendMessage(AdminSystemMain.prefix + "¡ìaÄÑ¶È: ¡ìbÆÕÍ¨");
                 p.closeInventory();
                 openDifficultyGUI(p);
                 break;
             case SOUL_SAND:
                 Bukkit.getServer().getWorld(p.getWorld().getName()).setDifficulty(Difficulty.HARD);
-                p.sendMessage(AdminSystemMain.prefix + "Â§aéš¾åº¦: Â§bå›°éš¾");
+                p.sendMessage(AdminSystemMain.prefix + "¡ìaÄÑ¶È: ¡ìbÀ§ÄÑ");
                 p.closeInventory();
                 openDifficultyGUI(p);
                 break;

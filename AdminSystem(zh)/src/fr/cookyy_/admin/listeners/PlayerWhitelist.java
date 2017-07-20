@@ -14,7 +14,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class PlayerWhitelist implements org.bukkit.event.Listener {
 
     public static void openWhitePlayersGUI(Player player) {
-        Inventory inv = Bukkit.createInventory(null, 54, "Â§fÂ§lç™½åå•ç©å®¶");
+        Inventory inv = Bukkit.createInventory(null, 54, "¡ìf¡ìl°×Ãûµ¥Íæ¼Ò");
         int slot = 0;
         for (OfflinePlayer t : Bukkit.getWhitelistedPlayers()) {
             ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
@@ -31,7 +31,7 @@ public class PlayerWhitelist implements org.bukkit.event.Listener {
 
     @EventHandler
     public void clickInvWhitePlayers(InventoryClickEvent event) {
-        if (!event.getInventory().getName().equalsIgnoreCase("Â§fÂ§lç™½åå•ç©å®¶")) {
+        if (!event.getInventory().getName().equalsIgnoreCase("¡ìf¡ìl°×Ãûµ¥Íæ¼Ò")) {
             return;
         }
         Player p = (Player) event.getWhoClicked();

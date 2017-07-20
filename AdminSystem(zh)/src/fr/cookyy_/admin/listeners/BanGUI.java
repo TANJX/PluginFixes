@@ -14,7 +14,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class BanGUI implements org.bukkit.event.Listener {
 
     public static void openBanGUI(Player player) {
-        Inventory ban = Bukkit.createInventory(null, 54, "搂4琚皝绂佺殑鐜╁");
+        Inventory ban = Bukkit.createInventory(null, 54, "§4被封禁的玩家");
         int slot = 0;
         for (OfflinePlayer t : Bukkit.getBannedPlayers()) {
             ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
@@ -31,7 +31,7 @@ public class BanGUI implements org.bukkit.event.Listener {
 
     @EventHandler
     public void click(InventoryClickEvent event) {
-        if (!event.getInventory().getName().equalsIgnoreCase("搂4琚皝绂佺殑鐜╁")) {
+        if (!event.getInventory().getName().equalsIgnoreCase("§4被封禁的玩家")) {
             return;
         }
         Player p = (Player) event.getWhoClicked();
